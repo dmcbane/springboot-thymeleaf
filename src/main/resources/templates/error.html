@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head lang="en">
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="Spring Boot example">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link th:href="@{/css/styles.css}" rel="stylesheet"/>
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet"/>
+</head>
+
+<body class="error">
+<div class="page-wrap d-flex flex-row align-items-center">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-12 text-center">
+                <span class="display-1 d-block">OOPS!</span>
+                <div class="mb-4 lead">Something is seriously wrong.  Try again after our developers take a shot at this.</div>
+                <a href="/" class="btn btn-link">Back to Home</a>
+            </div>
+        </div>
+    </div>
+</div>
+<script th:src="@{bootstrap.min.js}" type="text/javascript"></script>
+<script th:src="@{jquery.min.js}" type="text/javascript"></script>
+</body>
+</html>

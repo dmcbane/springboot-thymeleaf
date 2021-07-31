@@ -2,6 +2,10 @@
     color: darkgreen;
 }
 
-h4 {
-    color: darkblue;
+body {
+    background: #dedede;
+}
+
+.page-wrap {
+    min-height: 100vh;
 }
