@@ -10,16 +10,28 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class HelloController {
 
 	@GetMapping({"/", "/hello", "/hello/"})
-	public String hello(Model model, @RequestParam(value="name", required=false, defaultValue="World") String name) {
-		model.addAttribute("name", name);
+	public String hello(Model model, @RequestParam(value="reqName", required=false, defaultValue="World") String reqName) {
+		model.addAttribute("name", "Only RequestParam");
+		model.addAttribute("reqName", reqName);
 		return "hello";
 	}
 
-	@GetMapping({"/{name}", "/hello/{name}"})
-	public String hello(Model model, @RequestParam(value="name", required=false, defaultValue="World") String reqName, @PathVariable(required = false) String pathName) {
+	@GetMapping({"/{pathName}", "/hello/{pathName}"})
+	public String hello(Model model, @RequestParam(value="reqName", required=false, defaultValue="World") String reqName, @PathVariable(required = false) String pathName) {
 		model.addAttribute("name", "both");
 		model.addAttribute("pathName", pathName);
-		model.addAttribute("reqname", reqName);
+		model.addAttribute("reqName", reqName);
+		return "hello";
+	}
+
+	@GetMapping({"/greetings/{pathName}"})
+	public String greetings(Model model, @PathVariable(required = false) String pathName) {
+		model.addAttribute("name", "Only PathVariable");
+		if (pathName == null) {
+			model.addAttribute("pathName", "null");
+		} else {
+			model.addAttribute("pathName", pathName);
+		}
 		return "hello";
 	}
 
