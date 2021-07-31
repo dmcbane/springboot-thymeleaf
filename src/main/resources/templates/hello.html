@@ -12,7 +12,9 @@
 <body>
     <h1 class="hello-title">Welcome to the Spring Boot Docker example.</h1>
 
-    <h4 th:text="'Hello, ' + ${name} + '!'"></h4>></h4>
+    <h4 th:text="'name: ' + ${name}"></h4>
+    <p th:text="'path: ' + ${pathName}"></p>
+    <p th:text="'request: ' + ${reqName}"></p>
     <script th:src="@{/js/main.js}"></script>
 </body>
 
