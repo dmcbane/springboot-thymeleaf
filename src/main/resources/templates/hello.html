@@ -6,39 +6,157 @@
     <title th:text="${name}"></title>
     <meta name="description" content="Spring Boot example">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link th:href="@{/css/styles.css}" rel="stylesheet" />
+    <link th:href="@{/css/styles.css}" rel="stylesheet"/>
     <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet"/>
+
 </head>
 
 <body>
 <div class="container">
-    <h1 class="hello-title text-center">Welcome to the Spring Boot Docker example.</h1>
-    <table class="table table-responsive table-bordered table-striped">
-        <thead class="text-white-50 bg-primary">
-        <tr>
-            <th>Item</th>
-            <th>Value</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td>Type</td>
-            <td th:text="${name}"></td>
-        </tr>
-        <tr>
-            <td>PathVariable</td>
-            <td th:text="${pathName}"></td>
-        </tr>
-        <tr>
-            <td>RequestParam</td>
-            <td th:text="${reqName}"></td>
-        </tr>
-        </tbody>
-    </table>
+    <div class="d-flex mt-3 pt-3 w-100 justify-content-center">
+        <div class="d-flex flex-row py-3 bg-secondary justify-content-center">
+            <div class="p-2 text-white display-3 text-center">
+                Welcome to the Spring Boot Docker example.
+            </div>
+        </div>
+    </div>
+    <div class="d-flex mb-1 pb-1 w-100 justify-content-center">
+        <div class="d-flex flex-row py-1 w-75 justify-content-center bg-light">
+            <div class="p-1 m-1 text-center">
+                <h5><strong>Type</strong></h5>
+            </div>
+        </div>
+        <div class="d-flex flex-row py-1 w-75 justify-content-center bg-light">
+            <div class="p-1 m-1 text-center">
+                <h5><strong>Path Variable</strong></h5>
+            </div>
+        </div>
+        <div class="d-flex flex-row py-1 w-75 justify-content-center bg-light">
+            <div class="p-1 m-1 text-center">
+                <h5><strong>Request Parameter</strong></h5>
+            </div>
+        </div>
+    </div>
+    <div class="d-flex mb-1 pb-1 w-100 justify-content-center">
+        <div class="d-flex flex-row py-1 w-75 justify-content-center">
+            <div class="p-1 m-1 text-center">
+                <h6 th:text="${name}"></h6>
+            </div>
+        </div>
+        <div class="d-flex flex-row py-1 w-75 justify-content-center">
+            <div class="p-1 m-1 text-center">
+                <h6 th:text="${pathName}"></h6>
+            </div>
+        </div>
+        <div class="d-flex flex-row py-1 w-75 justify-content-center">
+            <div class="p-1 m-1 text-center">
+                <h6 th:text="${reqName}"></h6>
+            </div>
+        </div>
+    </div>
+    <div class="d-flex mt-3 pt-3 w-100 justify-content-center">
+        <div class="d-flex flex-row py-2 w-100 bg-secondary justify-content-center">
+            <div class="p-1 text-white display-6">
+                Examples
+            </div>
+        </div>
+    </div>
+    <div class="d-flex mb-3 pb-3 w-100 justify-content-center">
+        <div class="d-flex flex-row py-2 w-75 justify-content-center bg-light">
+            <div class="p-2 m-2 w-75 text-center bd-links" data-toggle="tooltip" data-placement="top" title="/">
+                <a href="/">Home no parameter</a>
+            </div>
+        </div>
+        <div class="d-flex flex-row py-2 w-75 justify-content-center bg-light">
+            <div class="p-2 m-2 w-75 text-center bd-links" data-toggle="tooltip" data-placement="top" title="/hello">
+                <a href="/hello">Hello no parameter</a>
+            </div>
+        </div>
+        <div class="d-flex flex-row py-2 w-75 justify-content-center bg-light">
+            <div class="p-2 m-2 w-75 text-center bd-links" data-toggle="tooltip" data-placement="top" title="/?name=Test">
+                <a href="/?name=Test">Home with name parameter</a>
+            </div>
+        </div>
+    </div>
+    <div class="d-flex mb-3 pb-3 w-100 justify-content-center">
+        <div class="d-flex flex-row py-2 w-75 justify-content-center">
+            <div class="p-2 m-2 w-75 text-center bd-links" data-toggle="tooltip" data-placement="top" title="/hello?name=Test">
+                <a href="/hello?name=Test">Hello with name parameter</a>
+            </div>
+        </div>
+        <div class="d-flex flex-row py-2 w-75 justify-content-center">
+            <div class="p-2 m-2 w-75 text-center bd-links" data-toggle="tooltip" data-placement="top" title="/hello/One?name=Test">
+                <a href="/hello/One?name=Test">Path variables don't work</a>
+            </div>
+        </div>
+        <div class="d-flex flex-row py-2 w-75 justify-content-center">
+            <div class="p-2 m-2 w-75 text-center bd-links" data-toggle="tooltip" data-placement="top" title="/greetings">
+                <a href="/greetings">Greetings no parameter</a>
+            </div>
+        </div>
+    </div>
+    <div class="d-flex mb-3 pb-3 w-100 justify-content-center">
+
+        <div class="d-flex flex-row py-2 w-75 justify-content-center bg-light">
+            <div class="p-2 m-2 w-75 text-center bd-links" data-toggle="tooltip" data-placement="top" title="/greetings/Test">
+                <a href="/greetings/Test">Greetings with path variable</a>
+            </div>
+        </div>
+        <div class="d-flex flex-row py-2 w-75 justify-content-center bg-light">
+            <div class="p-2 m-2 w-75 text-center bd-links" data-toggle="tooltip" data-placement="top"
+                 title="/greetings/Test?name=One">
+                <a href="/greetings/Test?name=One">Request parameters don't work</a>
+            </div>
+        </div>
+        <div class="d-flex flex-row py-2 w-75 justify-content-center bg-light">
+            <div class="p-2 m-2 w-75 text-center bd-links" data-toggle="tooltip" data-placement="top" title="/greetings/Test/One">
+                <a href="/greetings/One">Multiple levels of path variables aren't configured</a>
+            </div>
+        </div>
+    </div>
+    <div class="d-flex mb-3 pb-3 w-100 justify-content-center">
+
+
+        <div class="d-flex flex-row py-2 w-75 justify-content-center">
+            <div class="p-2 m-2 w-75 text-center bd-links" data-toggle="tooltip" data-placement="top" title="/hello/One?name=Test">
+                <a href="/hello/One?name=Test">Path variables don't work</a>
+            </div>
+        </div>
+        <div class="d-flex flex-row py-2 w-75 justify-content-center">
+            <div class="p-2 m-2 w-75 text-center bd-links" data-toggle="tooltip" data-placement="top" title="/welcome">
+                <a href="/welcome">Welcome no parameter</a>
+            </div>
+        </div>
+        <div class="d-flex flex-row py-2 w-75 justify-content-center">
+            <div class="p-2 m-2 w-75 text-center bd-links" data-toggle="tooltip" data-placement="top" title="/welcome/Test">
+                <a href="/welcome/Test">Welcome with path variable</a>
+            </div>
+        </div>
+    </div>
+    <div class="d-flex mb-3 pb-3 w-100 justify-content-center">
+
+        <div class="d-flex flex-row py-2 w-75 justify-content-center bg-light">
+            <div class="p-2 m-2 w-75 text-center bd-links" data-toggle="tooltip" data-placement="top"
+                 title="/welcome/Test?name=One">
+                <a href="/welcome/?name=One">Welcome with request parameters</a>
+            </div>
+        </div>
+        <div class="d-flex flex-row py-2 w-75 justify-content-center bg-light">
+            <div class="p-2 m-2 w-75 text-center bd-links" data-toggle="tooltip" data-placement="top"
+                 title="/welcome/Test?name=One">
+                <a href="/welcome/Test?name=One">Request parameters don't work</a>
+            </div>
+        </div>
+        <div class="d-flex flex-row py-2 w-75 justify-content-center bg-light">
+            <div class="p-2 m-2 w-75 text-center bd-links" data-toggle="tooltip" data-placement="top" title="/welcome/Test/One">
+                <a href="/welcome/One">Multiple levels of path variables aren't configured</a>
+            </div>
+        </div>
+    </div>
 </div>
-    <script th:src="@{/js/main.js}"></script>
-    <script th:src="@{bootstrap.min.js}" type="text/javascript"></script>
-    <script th:src="@{jquery.min.js}" type="text/javascript"></script>
+<script th:src="@{/js/jquery.min.js}" type="text/javascript"></script>
+<script th:src="@{/js/bootstrap.min.js}" type="text/javascript"></script>
+<script th:src="@{/js/main.js}" type="text/javascript"></script>
 </body>
 
 </html>

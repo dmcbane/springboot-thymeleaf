@@ -1,3 +1,3 @@
-(function () {
-    console.log("Hello World!");
-})()
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+})
