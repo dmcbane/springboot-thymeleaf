@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Objects;
 
+@SuppressWarnings("SameReturnValue")
 @Controller
 public class HelloController {
 

@@ -2,6 +2,10 @@ package com.example.springbootdocker;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.event.ApplicationFailedEvent;
+import org.springframework.boot.context.event.ApplicationReadyEvent;
+import org.springframework.context.event.ContextRefreshedEvent;
+import org.springframework.context.event.EventListener;
 
 import java.awt.*;
 import java.io.IOException;
@@ -15,6 +19,7 @@ public class SpringBootDockerApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringBootDockerApplication.class, args);
+		System.out.println("SpringApplication.run complete – going to openHomePage");
 		openHomePage();
 	}
 
@@ -51,5 +56,18 @@ public class SpringBootDockerApplication {
 				e.printStackTrace();
 			}
 		}
+	}
+
+	@EventListener(ContextRefreshedEvent.class)
+	public void ContextRefreshedEventExecute() {
+		System.out.println("Context Event Listener is getting executed");
+	}
+	@EventListener(ApplicationReadyEvent.class)
+	public void EventListenerExecute() {
+		System.out.println("Application Ready Event was successfully Started.");
+	}
+	@EventListener(ApplicationFailedEvent.class)
+	public void EventListenerExecuteFailed() {
+		System.out.println("Application Event Listener has Failed.");
 	}
 }
