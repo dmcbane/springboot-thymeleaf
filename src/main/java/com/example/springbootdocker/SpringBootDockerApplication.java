@@ -11,6 +11,8 @@ import java.net.URISyntaxException;
 @SpringBootApplication
 public class SpringBootDockerApplication {
 
+	/* possible improvement - https://zetcode.com/springboot/applicationreadyevent/ */
+
 	public static void main(String[] args) {
 		SpringApplication.run(SpringBootDockerApplication.class, args);
 		openHomePage();
